@@ -12,8 +12,8 @@ tide = uptide.Tides(constituents)
 tide.set_initial_time(params.start_datetime)
 
 # point me at your TPXO files (grid and h_ data)
-grid_file_name = "../../data/grid_tpxo9.nc"
-data_file_name = "../../data/h_tpxo9.v1.nc"
+grid_file_name = "/mnt/scratch/projects/env-tsunami-2019/data/grid_tpxo9.nc"
+data_file_name = "/mnt/scratch/projects/env-tsunami-2019/data/h_tpxo9.v1.nc"
 tnci = uptide.tidal_netcdf.OTPSncTidalInterpolator(tide, grid_file_name, data_file_name)
 
 #linear increase
