@@ -5,7 +5,7 @@ import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 import params
 
-mesh2d = Mesh(os.path.join(os.path.pardir,os.path.pardir,params.mesh_file)) # mesh file
+mesh2d = celtic_sea.msh(os.path.join(os.path.pardir,os.path.pardir,params.mesh_file)) # mesh file
 
 viscosity = 1.0 # viscosity, obvs. 1.0 is a decent value. 10 is high, 0.001 is very low. Lower means more 
 # pretty eddies etc, but harder to solve, more likely to crash. Higher is more stable, but less realistic.
@@ -20,7 +20,7 @@ blend_dist = 50000
 
 # first deal with bathymetry
 with timed_stage('initialising bathymetry'):
-    bathy = hrds.HRDS("../../data/gbr_400_utm56S.tif",rasters=['../../data/gbr_100_utm56S_cropped.tif','../../data/oti_bathy_utm56S_filled_cropped.tif'],distances=[500.0,10.0])
+    bathy = hrrds.HRDS("../../data/bathy_topo_gebco2024_utm.tif", rasters=['../../data/bathy_topo_gebco2024_utm.tif'],distances=[20.0])
     bathy.set_bands()
     P1_2d = FunctionSpace(mesh2d, 'CG', 1)
     bathymetry2d = Function(P1_2d, name="bathymetry")
