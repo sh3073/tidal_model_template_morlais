@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.
 import params
 import utm
 
-checkpoint = 1610
+checkpoint = 255
 
 #timestepping options
 dt = 180 # reduce if solver does not converge
